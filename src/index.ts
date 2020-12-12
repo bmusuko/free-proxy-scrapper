@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 import axios from 'axios'
 import cheerio from 'cheerio';
-import { count } from "console";
 
 dotenv.config();
 
@@ -26,7 +25,7 @@ const main = async () => {
         })
     );
 
-    app.get('/', async (req : Request, res : Response) =>{
+    app.get('/', async (_ : Request, res : Response) =>{
         const url = 'https://scrapingant.com/free-proxies/'
         const page = await axios.get(url)
         const $ = cheerio.load(page.data);
@@ -39,7 +38,6 @@ const main = async () => {
             const temp: string[] = []
             $("td", table[i]).each((_,element) => {
                 temp.push($(element).text())
-                console.log($(element).text())
             })
             let country = temp[3].split(/[ ,]+/)
             country.shift()

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd --respawn src/index.ts"
+    "start": "node dist/index.js",
+    "dev": "tsnd --respawn src/index.ts",
+    "build": "tsc --project tsconfig.json"
   },
   "keywords": [],
   "author": "",
